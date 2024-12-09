@@ -1,0 +1,48 @@
+{
+  "extends": "@adonisjs/tsconfig/tsconfig.client.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "jsx": "preserve",
+    "module": "ESNext",
+    "jsxImportSource": "vue",
+    // "allowJs": false,
+    // "moduleResolution": "node",
+    // "noImplicitAny": false,
+    "paths": {
+      "~/*": ["./*"],
+      "@/*": ["./*"],
+      "/@src/*": ["./*"],
+    },
+
+    "target": "esnext",
+    // "module": "esnext",
+    "moduleResolution": "bundler",
+    "lib": ["esnext", "dom"],
+    // "baseUrl": ".",
+    // "jsx": "preserve",
+    // "jsxImportSource": "vue",
+    "resolveJsonModule": true,
+    // "removeComments": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    // "isolatedModules": true,
+    // "useDefineForClassFields": true,
+    "allowJs": true,
+    // "verbatimModuleSyntax": true,
+    "allowSyntheticDefaultImports": true,
+  },
+  "include": [
+    "./**/*.ts", "./**/*.vue",
+    "/**/*.vue",
+    "*.config.ts",
+    "../*.config.ts",
+    "../types/**/*.d.ts",
+    "../types/tables.ts",
+
+
+    "./**/*.js",
+    "./**/*.ts",
+    "./**/*.vue",
+    "./composables/*"
+  ],
+}

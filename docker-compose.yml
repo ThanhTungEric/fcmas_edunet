@@ -1,0 +1,38 @@
+# include:
+#   - dev-compose-prepper.yml
+
+services:
+  fcmas_nginx:
+    image: webdevops/php-nginx:8.2
+    ports:
+      - "8089:80"
+    volumes:
+      - ./nginx:/app
+    environment:
+      - PHP_DEBUGGER=xdebug
+      - PHP_DISPLAY_ERRORS=1
+      - PHP_DATE_TIMEZONE=Asia/Ho_Chi_Minh
+      - WEB_DOCUMENT_ROOT=/app
+    depends_on:
+      - fcmas_mysql
+    networks:
+      - opensearch-net
+  fcmas_mysql:
+    image: mysql:latest
+    ports:
+      - 3306:3306
+    volumes:
+      - ./mysql:/var/lib/mysql
+    environment:
+      - MYSQL_ROOT_HOST=%
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD}
+      - MYSQL_USER=${MYSQL_USER}
+      - MYSQL_DATABASE=${MYSQL_DATABASE}
+      # - MYSQL_INITDB_SKIP_TZINFO=yes
+    networks:
+      - opensearch-net
+
+networks:
+  opensearch-net:
+    driver: bridge

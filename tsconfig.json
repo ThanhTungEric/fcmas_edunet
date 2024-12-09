@@ -1,0 +1,67 @@
+{
+  "extends": "@adonisjs/tsconfig/tsconfig.app.json",
+  "compilerOptions": {
+    "rootDir": "./",
+    "outDir": "./build",
+
+    // "baseUrl": ".",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "bundler",
+    "experimentalDecorators": true,
+    "strict": true,
+    // "jsx": "preserve",
+    // "jsxImportSource": "vue",
+    // "resolveJsonModule": true,
+    "esModuleInterop": true,
+    // "removeComments": true,
+    // "importHelpers": true,
+    // "forceConsistentCasingInFileNames": true,
+    // "isolatedModules": true,
+    // "useDefineForClassFields": true,
+    "noEmit": true,
+    // "allowJs": true,
+    "allowImportingTsExtensions": true,
+    "noImplicitThis": true,
+    // // "verbatimModuleSyntax": true,
+    // "allowSyntheticDefaultImports": true,
+    "skipLibCheck": true,
+    "lib": ["esnext", "dom"],
+    "types": [
+      "vite/client",
+      "vite-plugin-pwa/client",
+      "unplugin-vue-router/client",
+      // "@intlify/vite-plugin-vue-i18n/client",
+      "@intlify/unplugin-vue-i18n/messages"
+    ],
+    "paths": {
+      "/@src/*": ["./inertia/*"],
+    },
+
+
+    // "baseUrl": ".",
+    // "jsx": "preserve",
+    "jsxImportSource": "vue",
+    "resolveJsonModule": true,
+    // "removeComments": true,
+    "importHelpers": true,
+    "forceConsistentCasingInFileNames": true,
+    // "isolatedModules": true,
+    // "useDefineForClassFields": true,
+    "allowJs": true,
+    // "verbatimModuleSyntax": true,
+    "allowSyntheticDefaultImports": true,
+  },
+
+  "include": [
+    "types/**/*.d.ts",
+    "types/tables.ts",
+    "adonisrc.ts",
+    "*.config.ts",
+    "app",
+    "config",
+    "database",
+    "start"
+  ],
+  "exclude": ["./inertia/**/*", "node_modules", "build", "bulma-colors.ts", "components-meta.ts"]
+}
